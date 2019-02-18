@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BLitWebApp.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Registered Vehicles</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["VINSort"]">@Html.DisplayNameFor(model => model.VIN)</a>
+            </th>
+            <th> 
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ManufacturerSort"]">Manufacturer @Html.DisplayNameFor(model => model.CarModel.Manufacturer.Name)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CarModelSort"]">Car Model @Html.DisplayNameFor(model => model.CarModel.Name)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CarClassSort"]">Car Class @Html.DisplayNameFor(model => model.CarClass.Name)</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarModel.Manufacturer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarModel.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarClass.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

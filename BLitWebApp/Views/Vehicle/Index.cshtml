@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Vehicle Registration";
+}
+@model BLitWebApp.Models.Vehicle
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="Vehicle">
+    <div class="fieldWrapper">
+        <label for="vin"> VIN:</label>
+        <input type="text" id="vin" name="Vin"/>
+    </div>
+    <div class="fieldWrapper">
+        <label for="vehicleMake"> Vehicle Make:</label>
+        <input type="text" id="vehicleMake" name="VehicleMake" />
+    </div>
+    <div class="fieldWrapper"> 
+        <label for="vehicleModle">Vehicle Model:</label>
+        <input type="text" id="vehicleModel" name="VehicleModel" />
+    </div>
+    <div class="fieldWrapper">
+        <label for="vehicleClass">Vehicle Class:</label>
+        <input type="text" id="vehicleClass" name="VehicleClass" />
+    </div>
+    <div class="fieldWrapper">
+        <input type="submit" value="Register Vehicle"/>
+    </div>
+</form>
+<br />

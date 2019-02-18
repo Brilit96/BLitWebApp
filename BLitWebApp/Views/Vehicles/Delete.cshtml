@@ -1,0 +1,38 @@
+﻿@model BLitWebApp.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete Vehicle</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VIN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VIN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CarModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarModel.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CarClass)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarClass.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
